@@ -21,8 +21,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 # Copy source code
-COPY src/ ./src/
-COPY config/ ./config/
+COPY MitraVerify-Backend/src/ ./src/
+COPY MitraVerify-Backend/config/ ./config/
 
 # Create necessary directories and set permissions
 RUN mkdir -p data/models/pretrained data/evidence logs && \
