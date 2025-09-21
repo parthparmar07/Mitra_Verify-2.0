@@ -35,4 +35,4 @@ USER app
 EXPOSE 8000
 
 # Run the application
-CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD uvicorn src.api.main:app --host 0.0.0.0 --port $PORT
