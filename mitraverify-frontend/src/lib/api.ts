@@ -3,7 +3,17 @@
  * Handles communication with the backend API
  */
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// API base URL with fallbacks for different environments
+const getApiBaseUrl = () => {
+  // Production API URL (you'll need to deploy your backend)
+  if (process.env.NODE_ENV === 'production') {
+    return process.env.NEXT_PUBLIC_API_URL || 'https://your-backend-api.herokuapp.com';
+  }
+  // Development/local URL
+  return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 export interface VerificationResult {
   overall_verdict: string;
